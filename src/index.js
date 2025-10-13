@@ -15,6 +15,13 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <IndexPage />,
+        loader() {
+          return fetch(
+            "https://jsonplaceholder.typicode.com/posts?_expand=user"
+          ).then((response) => {
+            return response.json();
+          });
+        },
       },
       {
         path: "/contact",
