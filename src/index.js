@@ -6,15 +6,21 @@ import IndexPage from "./IndexPage";
 import ContactPage from "./ContactPage";
 
 import "bootstrap/dist/css/bootstrap.css";
+import Root from "./Root";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <IndexPage />,
-  },
-  {
-    path: "/contact",
-    element: <ContactPage />,
+    element: <Root />,
+    children: [
+      {
+        path: "/",
+        element: <IndexPage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
+      },
+    ],
   },
 ]);
 

@@ -1,9 +1,6 @@
-import Navigation from "./Navigation";
-
 export default function IndexPage() {
   return (
-    <div className="container">
-      <Navigation />
+    <div className="home-page">
       <h1>Home</h1>
     </div>
   );
