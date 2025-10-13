@@ -4,6 +4,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import IndexPage from "./IndexPage";
 import ContactPage from "./ContactPage";
+import PostDetailsPage from "./PostDetailsPage";
 
 import "bootstrap/dist/css/bootstrap.css";
 import Root from "./Root";
@@ -26,6 +27,17 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactPage />,
+      },
+      {
+        path: "/posts/:postId",
+        loader({ params }) {
+          return fetch(
+            `https://jsonplaceholder.typicode.com/posts/${params.postId}?_expand=user&_embed=comments`
+          ).then((response) => {
+            return response.json();
+          });
+        },
+        element: <PostDetailsPage />,
       },
     ],
   },
