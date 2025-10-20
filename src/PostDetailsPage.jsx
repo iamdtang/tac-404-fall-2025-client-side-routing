@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, Link } from "react-router-dom";
 
 export default function PostDetailsPage() {
   const post = useLoaderData();
@@ -37,6 +37,9 @@ export default function PostDetailsPage() {
       >
         Delete
       </button>
+      <Link to={`/posts/${post.id}/edit`} className="btn btn-primary mx-3">
+        Edit
+      </Link>
     </div>
   );
 }

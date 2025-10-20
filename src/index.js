@@ -9,6 +9,7 @@ import PostDetailsPage from "./PostDetailsPage";
 import "bootstrap/dist/css/bootstrap.css";
 import Root from "./Root";
 import CreatePostPage from "./CreatePostPage";
+import EditPostPage from "./EditPostPage";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,15 @@ const router = createBrowserRouter([
       {
         path: "/write",
         element: <CreatePostPage />,
+      },
+      {
+        path: "/posts/:postId/edit",
+        loader({ params }) {
+          return fetch(`/posts/${params.postId}`).then((response) => {
+            return response.json();
+          });
+        },
+        element: <EditPostPage />,
       },
     ],
   },
