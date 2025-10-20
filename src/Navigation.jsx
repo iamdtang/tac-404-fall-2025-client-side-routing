@@ -19,6 +19,11 @@ export default function Navigation() {
                 Contact
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/write" className="nav-link">
+                Write a post
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

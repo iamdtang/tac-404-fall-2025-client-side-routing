@@ -8,6 +8,7 @@ import PostDetailsPage from "./PostDetailsPage";
 
 import "bootstrap/dist/css/bootstrap.css";
 import Root from "./Root";
+import CreatePostPage from "./CreatePostPage";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
           });
         },
         element: <PostDetailsPage />,
+      },
+      {
+        path: "/write",
+        element: <CreatePostPage />,
       },
     ],
   },
