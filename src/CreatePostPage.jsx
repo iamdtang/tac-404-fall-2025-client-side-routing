@@ -1,24 +1,19 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import PostForm from "./PostForm";
 
 export default function CreatePostPage() {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-
   const navigate = useNavigate();
 
   return (
-    <form
-      method="post"
-      onSubmit={(event) => {
-        event.preventDefault();
-
+    <PostForm
+      onSubmit={(newPost) => {
         fetch(`/posts`, {
           method: "POST",
           body: JSON.stringify({
-            title,
-            body,
+            ...newPost,
+
+            // likely would be set by the API based on the current logged in user
             userId: "1",
           }),
           headers: {
@@ -29,34 +24,6 @@ export default function CreatePostPage() {
           toast.success("You successfully created your post.");
         });
       }}
-    >
-      <div className="mb-3">
-        <input
-          className="form-control"
-          type="text"
-          name="title"
-          placeholder="Title"
-          value={title}
-          onChange={(event) => {
-            setTitle(event.target.value);
-          }}
-        />
-      </div>
-      <div className="form-floating mb-3">
-        <textarea
-          className="form-control"
-          id="body"
-          style={{ height: "100px" }}
-          value={body}
-          onChange={(event) => {
-            setBody(event.target.value);
-          }}
-        />
-        <label htmlFor="body">Write your post here</label>
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Save
-      </button>
-    </form>
+    />
   );
 }
