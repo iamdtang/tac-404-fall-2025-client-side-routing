@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import IndexPage from "./IndexPage";
 import ContactPage from "./ContactPage";
 import PostDetailsPage from "./PostDetailsPage";
-
+import "react-toastify/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Root from "./Root";
 import CreatePostPage from "./CreatePostPage";

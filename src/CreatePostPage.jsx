@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function CreatePostPage() {
   const [title, setTitle] = useState("");
@@ -25,6 +26,7 @@ export default function CreatePostPage() {
           },
         }).then(() => {
           navigate("/");
+          toast.success("You successfully created your post.");
         });
       }}
     >

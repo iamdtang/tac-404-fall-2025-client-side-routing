@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function EditPostPage() {
   const post = useLoaderData();
@@ -25,6 +26,7 @@ export default function EditPostPage() {
           },
         }).then(() => {
           navigate(`/posts/${post.id}`);
+          toast.success("Your post was successfully updated.");
         });
       }}
     >

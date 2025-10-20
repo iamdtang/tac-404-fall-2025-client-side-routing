@@ -1,4 +1,5 @@
 import { useLoaderData, useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function PostDetailsPage() {
   const post = useLoaderData();
@@ -31,6 +32,7 @@ export default function PostDetailsPage() {
               method: "DELETE",
             }).then(() => {
               navigate("/");
+              toast.success("Your post was successfully deleted.");
             });
           }
         }}
